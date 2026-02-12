@@ -1,34 +1,36 @@
-const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("message");
 
-// Move "No" button
+// Move No button randomly
 noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
+    const x = Math.random() * 300;
+    const y = Math.random() * 200;
+
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
 });
 
-// Yes button click
+// When Yes is clicked
 yesBtn.addEventListener("click", () => {
     message.style.display = "block";
     createHearts();
 });
 
-// Floating hearts
+// Floating hearts animation
 function createHearts() {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
         const heart = document.createElement("div");
         heart.classList.add("heart");
         heart.innerHTML = "💖";
+
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "100vh";
         heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
         document.body.appendChild(heart);
 
         setTimeout(() => {
             heart.remove();
-        }, 5000);
+        }, 4000);
     }
 }

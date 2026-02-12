@@ -1,41 +1,42 @@
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const message = document.getElementById("message");
+const text = "Will You Be My Valentine?";
+const typeTarget = document.getElementById("typeText");
+let index = 0;
 
+function typeEffect() {
+    if (index < text.length) {
+        typeTarget.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 80);
+    }
+}
+typeEffect();
+
+
+const noBtn = document.getElementById("noBtn");
 noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * 300;
-    const y = Math.random() * 200;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    noBtn.style.left = Math.random() * 250 + "px";
+    noBtn.style.top = Math.random() * 150 + "px";
 });
+
+
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
 
 yesBtn.addEventListener("click", () => {
     message.style.display = "block";
-    createHearts();
+    petals();
 });
 
-function createHearts() {
+
+function petals() {
     for (let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.innerHTML = "💜";
-        heart.style.position = "absolute";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = (Math.random() * 25 + 15) + "px";
-        heart.style.bottom = "-20px";
-        heart.style.animation = "floatUp 4s linear";
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerHTML = "🌸";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        document.body.appendChild(petal);
 
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 4000);
+        setTimeout(() => petal.remove(), 6000);
     }
 }
-
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-800px); opacity: 0; }
-}`;
-document.head.appendChild(style);

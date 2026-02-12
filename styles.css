@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6ec, #cceeff);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #6ec6ff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.cinnamoroll {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#yesBtn {
+    background-color: #ff8dc7;
+    color: white;
+}
+
+#yesBtn:hover {
+    background-color: #ff5fa9;
+}
+
+#noBtn {
+    background-color: #b3e5ff;
+    color: #333;
+    position: absolute;
+}
+
+#message {
+    font-size: 1.3rem;
+    color: #ff69b4;
+    margin-top: 20px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    animation: float 5s linear infinite;
+    font-size: 20px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-800px);
+        opacity: 0;
+    }
+}
